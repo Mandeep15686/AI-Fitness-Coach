@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "778466348549",
+    "project_id": "ai-fitness-coach-project",
+    "storage_bucket": "ai-fitness-coach-project.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:778466348549:android:92ad6cad1c5bde2c81566c",
+        "android_client_info": {
+          "package_name": "com.example.ai_fitness_coach"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDk2Pxtd_0plwA8eGyXXlABJywQFk3SokQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
