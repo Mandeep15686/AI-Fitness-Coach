@@ -1,2 +1,32 @@
-.dart_tool/
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+/build/
+/ios/build/
+/android/build/
+/android/.gradle/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Flutter
+.flutter-plugins
 .flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+
+# Build artifacts
+build/
+
+# Android Studio
+.gradle/
+local.properties

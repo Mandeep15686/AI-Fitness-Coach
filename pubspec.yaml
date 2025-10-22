@@ -44,8 +44,8 @@ dependencies:
 
 
   # Camera & ML
-  camera: ^0.10.5+5
-  google_ml_kit: ^0.16.0
+  camera: ^0.11.0
+  google_ml_kit: ^0.20.0
 
   # UI & Utilities
   intl: ^0.18.1

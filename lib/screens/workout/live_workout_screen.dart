@@ -50,8 +50,8 @@ class _LiveWorkoutScreenState extends State<LiveWorkoutScreen> {
   void _startImageStream() {
     final poseProvider = Provider.of<PoseProvider>(context, listen: false);
     _cameraService.startImageStream((image) async {
-      final imageSize = Size(image.width.toDouble(), image.height.toDouble());
-      await poseProvider.processPose(image, imageSize);
+      final sensorOrientation = _cameraService.controller?.description.sensorOrientation ?? 0;
+      await poseProvider.processPose(image, sensorOrientation);
     });
   }
 

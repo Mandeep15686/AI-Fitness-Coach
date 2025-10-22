@@ -39,13 +39,12 @@ class PoseProvider with ChangeNotifier {
   }
 
   // Process pose from camera
-  Future<void> processPose(dynamic cameraImage, Size imageSize) async {
+  Future<void> processPose(dynamic cameraImage, int sensorOrientation) async {
     if (!_isPoseDetectionActive) return;
 
     try {
-      // FIX: The 'detectPose' method expects both the camera image and the image size.
-      // The original code was missing the 'imageSize' parameter in the call.
-      PoseDataModel? pose = await _poseDetectionService.detectPose(cameraImage, imageSize);
+      // FIX: The 'detectPose' method expects both the camera image and the sensor orientation.
+      PoseDataModel? pose = await _poseDetectionService.detectPose(cameraImage, sensorOrientation);
 
       // Ensure pose is not null before proceeding
       if (pose != null) {

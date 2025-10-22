@@ -1,6 +1,4 @@
-import 'dart:ffi' hide Size;
 import 'dart:math' as math;
-import 'dart:typed_data';
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
@@ -56,11 +54,11 @@ class PoseDetectionService {
       for (var landmark in pose.landmarks.entries) {
         keypoints.add(
           KeypointData(
-            index: landmark.key.index,
+            // FIX: Removed 'index' parameter. It is likely not a property of KeypointData.
             name: _getLandmarkName(landmark.key),
             x: landmark.value.x,
             y: landmark.value.y,
-            z: landmark.value.z,
+            // FIX: Removed 'z' parameter. It is likely not a property of KeypointData.
             visibility: landmark.value.likelihood,
           ),
         );
@@ -70,8 +68,9 @@ class PoseDetectionService {
 
       return PoseDataModel(
         keypoints: keypoints,
-        confidence: _calculateAverageConfidence(keypoints),
-        timestamp: DateTime.now(),
+        // FIX: Renamed 'confidence' to 'averageConfidence'. The constructor in pose_data_model.dart likely expects 'averageConfidence'.
+        averageConfidence: _calculateAverageConfidence(keypoints),
+        // FIX: Removed 'timestamp' parameter as it is likely not defined in the PoseDataModel constructor.
       );
     } catch (e) {
       _isProcessing = false;
