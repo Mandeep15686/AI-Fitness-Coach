@@ -8,14 +8,14 @@
 .buildlog/
 .history
 .svn/
-/build/
-/ios/build/
-/android/build/
-/android/.gradle/
 
 # IntelliJ
 .idea/
 *.iml
+*.ipr
+*.iws
+out/
+gen/
 
 # Flutter
 .flutter-plugins
@@ -23,10 +23,18 @@
 .packages
 .pub-cache/
 .pub/
+/build/
 
-# Build artifacts
-build/
-
-# Android Studio
-.gradle/
-local.properties
+# Android
+#
+# Some of these entries are commented out because they may be required for specific
+# setups. As a general rule, you should not check in files under the build/
+# directory. You can uncomment the entries if you need to check them in.
+#
+#android/app/build/
+#android/build/
+#android/.gradle/
+#.gradle/
+#captures/
+#android/local.properties
+#GeneratedPluginRegistrant.java
