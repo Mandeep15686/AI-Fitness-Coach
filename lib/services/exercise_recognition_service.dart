@@ -1,7 +1,6 @@
 import 'dart:collection';
 import 'dart:math' as math;
 import '../models/pose_data_model.dart';
-import '../models/exercise_model.dart';
 import '../core/constants/app_constants.dart';
 
 class ExerciseRecognitionService {

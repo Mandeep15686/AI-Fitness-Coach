@@ -13,6 +13,17 @@ class AuthProvider with ChangeNotifier {
   String? get errorMessage => _errorMessage;
   bool get isAuthenticated => _currentUser != null;
 
+  AuthProvider() {
+    _tryAutoLogin();
+  }
+
+  Future<void> _tryAutoLogin() async {
+    final user = _authService.currentUser;
+    if (user != null) {
+      await loadUserData(user.uid);
+    }
+  }
+
   // Sign up
   Future<bool> signUp({
     required String email,

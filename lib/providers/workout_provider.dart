@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../models/workout_model.dart';
-import '../models/exercise_model.dart';
 import '../models/user_model.dart';
 import '../services/firebase_service.dart';
 import '../services/calorie_service.dart';

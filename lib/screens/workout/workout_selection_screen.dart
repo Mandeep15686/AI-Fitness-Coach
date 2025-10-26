@@ -4,7 +4,7 @@ import '../../core/routes/app_routes.dart';
 import '../../models/exercise_model.dart';
 
 class WorkoutSelectionScreen extends StatelessWidget {
-  const WorkoutSelectionScreen({Key? key}) : super(key: key);
+  const WorkoutSelectionScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

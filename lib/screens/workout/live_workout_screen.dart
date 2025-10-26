@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:camera/camera.dart';
-// Corrected import path below
-import 'package:ai_fitness_coach/models/pose_data_model.dart';
-import '../../core/constants/colors.dart';
 import '../../providers/pose_provider.dart';
 import '../../providers/workout_provider.dart';
 import '../../providers/auth_provider.dart';
@@ -14,7 +11,7 @@ import '../../widgets/rep_counter_widget.dart';
 class LiveWorkoutScreen extends StatefulWidget {
   final String exerciseType;
 
-  const LiveWorkoutScreen({Key? key, required this.exerciseType}) : super(key: key);
+  const LiveWorkoutScreen({super.key, required this.exerciseType});
 
   @override
   State<LiveWorkoutScreen> createState() => _LiveWorkoutScreenState();
@@ -91,7 +88,6 @@ class _LiveWorkoutScreenState extends State<LiveWorkoutScreen> {
       );
     }
 
-    final screenH = MediaQuery.of(context).size.height;
     final screenW = MediaQuery.of(context).size.width;
     final previewSize = _cameraService.controller!.value.previewSize!;
 

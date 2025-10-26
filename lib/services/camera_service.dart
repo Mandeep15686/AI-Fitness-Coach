@@ -1,5 +1,4 @@
 import 'package:camera/camera.dart';
-import '../core/constants/app_constants.dart';
 
 class CameraService {
   CameraController? _controller;

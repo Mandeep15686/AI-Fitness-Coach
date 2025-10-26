@@ -13,7 +13,7 @@ class Helpers {
   static String formatDuration(int seconds) {
     int minutes = seconds ~/ 60;
     int remainingSeconds = seconds % 60;
-    return '\${minutes}m \${remainingSeconds}s';
+    return '${minutes}m ${remainingSeconds}s';
   }
 
   static String getBMICategory(double bmi) {

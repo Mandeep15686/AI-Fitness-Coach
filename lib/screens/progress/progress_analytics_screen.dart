@@ -5,7 +5,7 @@ import '../../providers/auth_provider.dart';
 import '../../widgets/progress_chart_widget.dart';
 
 class ProgressAnalyticsScreen extends StatefulWidget {
-  const ProgressAnalyticsScreen({Key? key}) : super(key: key);
+  const ProgressAnalyticsScreen({super.key});
 
   @override
   State<ProgressAnalyticsScreen> createState() => _ProgressAnalyticsScreenState();

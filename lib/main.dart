@@ -1,3 +1,4 @@
+import 'package:ai_fitness_coach/providers/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
@@ -22,11 +23,17 @@ void main() async {
   // Get available cameras
   cameras = await availableCameras();
 
-  runApp(const AIFitnessCoachApp());
+  // Load the theme
+  final themeProvider = ThemeProvider();
+  await themeProvider.loadTheme();
+
+  runApp(AIFitnessCoachApp(themeProvider: themeProvider));
 }
 
 class AIFitnessCoachApp extends StatelessWidget {
-  const AIFitnessCoachApp({Key? key}) : super(key: key);
+  final ThemeProvider themeProvider;
+
+  const AIFitnessCoachApp({super.key, required this.themeProvider});
 
   @override
   Widget build(BuildContext context) {
@@ -35,15 +42,20 @@ class AIFitnessCoachApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => WorkoutProvider()),
         ChangeNotifierProvider(create: (_) => PoseProvider()),
+        ChangeNotifierProvider.value(value: themeProvider),
       ],
-      child: MaterialApp(
-        title: 'AI Fitness Coach',
-        debugShowCheckedModeBanner: false,
-        theme: AppTheme.lightTheme,
-        darkTheme: AppTheme.darkTheme,
-        themeMode: ThemeMode.system,
-        initialRoute: AppRoutes.splash,
-        onGenerateRoute: AppRoutes.generateRoute,
+      child: Consumer<ThemeProvider>(
+        builder: (context, themeProvider, child) {
+          return MaterialApp(
+            title: 'AI Fitness Coach',
+            debugShowCheckedModeBanner: false,
+            theme: AppTheme.lightTheme,
+            darkTheme: AppTheme.darkTheme,
+            themeMode: themeProvider.themeMode,
+            initialRoute: AppRoutes.splash,
+            onGenerateRoute: AppRoutes.generateRoute,
+          );
+        },
       ),
     );
   }

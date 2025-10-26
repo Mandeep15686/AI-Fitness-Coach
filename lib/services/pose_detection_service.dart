@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
-import 'package:google_ml_kit/google_ml_kit.dart';
+import 'package:google_mlkit_pose_detection/google_mlkit_pose_detection.dart';
 import '../models/pose_data_model.dart';
 // Note: The import for app_constants was not used, so it can be removed if not needed elsewhere.
 // import '../core/constants/app_constants.dart';

@@ -7,11 +7,11 @@ class RepCounterWidget extends StatelessWidget {
   final double formScore;
 
   const RepCounterWidget({
-    Key? key,
+    super.key,
     required this.repCount,
     required this.exerciseType,
     required this.formScore,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

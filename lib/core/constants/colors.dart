@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AppColors {
   // Primary Colors
   static const Color primaryColor = Color(0xFF6C63FF);
-  static const Color primaryDark = Color(0xFF5548C8);
+  static const Color primaryDark = Color(0xFF7a7aff);
   static const Color primaryLight = Color(0xFF9D97FF);
 
   // Accent Colors
@@ -16,9 +16,9 @@ class AppColors {
   static const Color cardColor = Color(0xFFFFFFFF);
 
   // Dark Theme Colors
-  static const Color darkBackground = Color(0xFF121212);
-  static const Color darkSurface = Color(0xFF1E1E1E);
-  static const Color darkCard = Color(0xFF2C2C2C);
+  static const Color darkBackground = Color(0xFF1a1a1a);
+  static const Color darkSurface = Color(0xFF2c2c2c);
+  static const Color darkCard = Color(0xFF3d3d3d);
 
   // Text Colors
   static const Color textPrimary = Color(0xFF212121);

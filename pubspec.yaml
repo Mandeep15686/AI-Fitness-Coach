@@ -37,15 +37,16 @@ dependencies:
 # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
-  firebase_core: ^4.2.0
-  firebase_auth: ^6.1.1
-  cloud_firestore: ^6.0.3
-  firebase_analytics: ^12.0.3
+  firebase_core: ^2.27.0
+  firebase_auth: ^4.17.8
+  cloud_firestore: ^4.15.8
+  firebase_analytics: ^10.8.0
+  shared_preferences: ^2.2.3
 
 
   # Camera & ML
-  camera: ^0.11.0
-  google_ml_kit: ^0.20.0
+  camera: ^0.10.6
+  google_mlkit_pose_detection: ^0.11.0
 
   # UI & Utilities
   intl: ^0.18.1
@@ -56,7 +57,7 @@ dev_dependencies:
     sdk: flutter
 
   # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
+  # encourage good-coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.

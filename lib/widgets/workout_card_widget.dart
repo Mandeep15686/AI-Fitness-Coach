@@ -5,7 +5,7 @@ import '../core/constants/colors.dart';
 class WorkoutCardWidget extends StatelessWidget {
   final WorkoutModel workout;
 
-  const WorkoutCardWidget({Key? key, required this.workout}) : super(key: key);
+  const WorkoutCardWidget({super.key, required this.workout});
 
   @override
   Widget build(BuildContext context) {

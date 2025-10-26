@@ -95,7 +95,7 @@ class AppTheme {
     return _baseTheme.copyWith(
       scaffoldBackgroundColor: AppColors.darkBackground,
       colorScheme: const ColorScheme.dark(
-        primary: AppColors.primaryColor,
+        primary: AppColors.primaryDark,
         secondary: AppColors.accentColor,
         surface: AppColors.darkSurface,
         error: AppColors.errorColor,
@@ -103,6 +103,11 @@ class AppTheme {
         onSecondary: AppColors.textWhite,
         onSurface: AppColors.textWhite,
         onError: AppColors.textWhite,
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: _baseTheme.elevatedButtonTheme.style!.copyWith(
+          backgroundColor: WidgetStateProperty.all(AppColors.primaryDark),
+        )
       ),
       appBarTheme: const AppBarTheme(
         elevation: 0,
@@ -117,6 +122,8 @@ class AppTheme {
       textTheme: _baseTheme.textTheme.copyWith(
         // Example: Override text colors for dark mode
         bodyLarge: const TextStyle(fontSize: 16, color: AppColors.textWhite),
+        headlineMedium: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: AppColors.textWhite),
+        bodyMedium: TextStyle(fontSize: 14, color: AppColors.textWhite.withAlpha(179)),
       ),
     );
   }

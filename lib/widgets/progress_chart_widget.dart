@@ -4,7 +4,7 @@ import '../models/workout_model.dart';
 class ProgressChartWidget extends StatelessWidget {
   final List<WorkoutModel> workouts;
 
-  const ProgressChartWidget({Key? key, required this.workouts}) : super(key: key);
+  const ProgressChartWidget({super.key, required this.workouts});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class ProgressChartWidget extends StatelessWidget {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Text('${entry.value.toStringAsFixed(0)}',
+                              Text(entry.value.toStringAsFixed(0),
                                 style: const TextStyle(fontSize: 10)),
                               const SizedBox(height: 4),
                               Container(

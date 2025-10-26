@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:ai_fitness_coach/models/pose_data_model.dart';
-import 'dart:ui';
 
 class PoseOverlayPainter extends CustomPainter {
   final PoseDataModel pose;
@@ -46,40 +45,39 @@ class PoseOverlayPainter extends CustomPainter {
     // Define connections using the keypoint names from your model
     final connections = {
       // Arms
-      'left_shoulder': 'left_elbow',
+      'left_shoulder': ['left_elbow', 'right_shoulder', 'left_hip'],
       'left_elbow': 'left_wrist',
-      'right_shoulder': 'right_elbow',
+      'right_shoulder': ['right_elbow', 'right_hip'],
       'right_elbow': 'right_wrist',
       // Torso
-      'left_shoulder': 'right_shoulder',
-      'left_hip': 'right_hip',
-      'left_shoulder': 'left_hip',
-      'right_shoulder': 'right_hip',
-      // Legs
-      'left_hip': 'left_knee',
-      'left_knee': 'left_ankle',
+      'left_hip': ['right_hip', 'left_knee'],
       'right_hip': 'right_knee',
+      // Legs
+      'left_knee': 'left_ankle',
       'right_knee': 'right_ankle',
     };
 
     // Create a map of keypoints by name for easy lookup
     final keypointsByName = {for (var kp in pose.keypoints) kp.name: kp};
 
-    connections.forEach((startName, endName) {
+    connections.forEach((startName, endNames) {
       final startPoint = keypointsByName[startName];
-      final endPoint = keypointsByName[endName];
+      if (startPoint == null || startPoint.visibility < 0.5) return;
 
-      if (startPoint != null &&
-          endPoint != null &&
-          startPoint.visibility > 0.5 &&
-          endPoint.visibility > 0.5) {
-        final double scaleX = size.width / imageSize.width;
-        final double scaleY = size.height / imageSize.height;
+      final endPoints = endNames is List ? endNames : [endNames];
 
-        final startOffset = Offset(startPoint.x * scaleX, startPoint.y * scaleY);
-        final endOffset = Offset(endPoint.x * scaleX, endPoint.y * scaleY);
+      for (var endName in endPoints) {
+        final endPoint = keypointsByName[endName];
 
-        canvas.drawLine(startOffset, endOffset, linePaint);
+        if (endPoint != null && endPoint.visibility > 0.5) {
+          final double scaleX = size.width / imageSize.width;
+          final double scaleY = size.height / imageSize.height;
+
+          final startOffset = Offset(startPoint.x * scaleX, startPoint.y * scaleY);
+          final endOffset = Offset(endPoint.x * scaleX, endPoint.y * scaleY);
+
+          canvas.drawLine(startOffset, endOffset, linePaint);
+        }
       }
     });
   }
