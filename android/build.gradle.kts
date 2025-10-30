@@ -7,6 +7,7 @@ plugins {
 allprojects {
     repositories {
         google()
+        maven { url = uri("https://repo.maven.apache.org/maven2/") }
         mavenCentral()
     }
 }

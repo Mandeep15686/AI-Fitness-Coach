@@ -913,7 +913,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND...
 ![GitHub forks](https://img.shields.io/github/forks/Mandeep15686/AI-Fitness-Coach?style=social)
 ![GitHub issues](https://img.shields.io/github/issues/Mandeep15686/AI-Fitness-Coach)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/Mandeep15686/AI-Fitness-Coach)
-![GitHub last commit](https://img.shields.io/github/last-commit/Mandeep15686/AI-Fitness-Coach)
+![GitHub last commit]( https://img.shields.io/github/last-commit/Mandeep15686/AI-Fitness-Coach)
 
 ---
 

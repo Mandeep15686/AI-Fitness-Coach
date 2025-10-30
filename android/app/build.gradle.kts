@@ -52,5 +52,7 @@ flutter {
 }
 
 dependencies {
+    implementation(platform("com.google.firebase:firebase-bom:33.1.1"))
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.23")
     implementation("androidx.multidex:multidex:2.0.1")
 }

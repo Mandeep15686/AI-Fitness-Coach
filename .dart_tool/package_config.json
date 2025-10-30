@@ -8,6 +8,12 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "args",
+      "rootUri": "file:///C:/Users/Mandeep%20Singh/AppData/Local/Pub/Cache/hosted/pub.dev/args-2.7.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
       "name": "async",
       "rootUri": "file:///C:/Users/Mandeep%20Singh/AppData/Local/Pub/Cache/hosted/pub.dev/async-2.13.0",
       "packageUri": "lib/",
@@ -33,7 +39,7 @@
     },
     {
       "name": "camera_avfoundation",
-      "rootUri": "file:///C:/Users/Mandeep%20Singh/AppData/Local/Pub/Cache/hosted/pub.dev/camera_avfoundation-0.9.22+1",
+      "rootUri": "file:///C:/Users/Mandeep%20Singh/AppData/Local/Pub/Cache/hosted/pub.dev/camera_avfoundation-0.9.22+4",
       "packageUri": "lib/",
       "languageVersion": "3.9"
     },
@@ -86,16 +92,34 @@
       "languageVersion": "3.4"
     },
     {
-      "name": "cross_file",
-      "rootUri": "file:///C:/Users/Mandeep%20Singh/AppData/Local/Pub/Cache/hosted/pub.dev/cross_file-0.3.4+2",
+      "name": "connectivity_plus",
+      "rootUri": "file:///C:/Users/Mandeep%20Singh/AppData/Local/Pub/Cache/hosted/pub.dev/connectivity_plus-6.1.5",
       "packageUri": "lib/",
-      "languageVersion": "3.3"
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "connectivity_plus_platform_interface",
+      "rootUri": "file:///C:/Users/Mandeep%20Singh/AppData/Local/Pub/Cache/hosted/pub.dev/connectivity_plus_platform_interface-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "cross_file",
+      "rootUri": "file:///C:/Users/Mandeep%20Singh/AppData/Local/Pub/Cache/hosted/pub.dev/cross_file-0.3.5",
+      "packageUri": "lib/",
+      "languageVersion": "3.7"
     },
     {
       "name": "cupertino_icons",
       "rootUri": "file:///C:/Users/Mandeep%20Singh/AppData/Local/Pub/Cache/hosted/pub.dev/cupertino_icons-1.0.8",
       "packageUri": "lib/",
       "languageVersion": "3.1"
+    },
+    {
+      "name": "dbus",
+      "rootUri": "file:///C:/Users/Mandeep%20Singh/AppData/Local/Pub/Cache/hosted/pub.dev/dbus-0.7.11",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
     },
     {
       "name": "fake_async",
@@ -272,6 +296,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "nm",
+      "rootUri": "file:///C:/Users/Mandeep%20Singh/AppData/Local/Pub/Cache/hosted/pub.dev/nm-0.5.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "path",
       "rootUri": "file:///C:/Users/Mandeep%20Singh/AppData/Local/Pub/Cache/hosted/pub.dev/path-1.9.1",
       "packageUri": "lib/",
@@ -294,6 +324,12 @@
       "rootUri": "file:///C:/Users/Mandeep%20Singh/AppData/Local/Pub/Cache/hosted/pub.dev/path_provider_windows-2.3.0",
       "packageUri": "lib/",
       "languageVersion": "3.2"
+    },
+    {
+      "name": "petitparser",
+      "rootUri": "file:///C:/Users/Mandeep%20Singh/AppData/Local/Pub/Cache/hosted/pub.dev/petitparser-7.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.8"
     },
     {
       "name": "platform",
@@ -432,6 +468,12 @@
       "rootUri": "file:///C:/Users/Mandeep%20Singh/AppData/Local/Pub/Cache/hosted/pub.dev/xdg_directories-1.1.0",
       "packageUri": "lib/",
       "languageVersion": "3.3"
+    },
+    {
+      "name": "xml",
+      "rootUri": "file:///C:/Users/Mandeep%20Singh/AppData/Local/Pub/Cache/hosted/pub.dev/xml-6.6.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.8"
     },
     {
       "name": "ai_fitness_coach",
