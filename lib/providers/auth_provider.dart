@@ -1,9 +1,10 @@
+import 'package:ai_fitness_coach/services/encryption_service.dart';
 import 'package:flutter/material.dart';
 import '../models/user_model.dart';
 import '../services/auth_service.dart';
 
 class AuthProvider with ChangeNotifier {
-  final AuthService _authService = AuthService();
+  late final AuthService _authService;
   UserModel? _currentUser;
   bool _isLoading = false;
   String? _errorMessage;
@@ -13,7 +14,8 @@ class AuthProvider with ChangeNotifier {
   String? get errorMessage => _errorMessage;
   bool get isAuthenticated => _currentUser != null;
 
-  AuthProvider() {
+  AuthProvider(EncryptionService encryptionService) {
+    _authService = AuthService(encryptionService);
     _tryAutoLogin();
   }
 
@@ -132,6 +134,44 @@ class AuthProvider with ChangeNotifier {
       return true;
     } catch (e) {
       _errorMessage = e.toString();
+      notifyListeners();
+      return false;
+    }
+  }
+
+  // Send OTP to phone
+  Future<bool> sendOtp(String phoneNumber) async {
+    _isLoading = true;
+    _errorMessage = null;
+    notifyListeners();
+
+    try {
+      await _authService.sendOtp(phoneNumber);
+      _isLoading = false;
+      notifyListeners();
+      return true;
+    } catch (e) {
+      _errorMessage = e.toString();
+      _isLoading = false;
+      notifyListeners();
+      return false;
+    }
+  }
+
+  // Verify OTP and link phone number
+  Future<bool> verifyOtpAndLink(String smsCode) async {
+    _isLoading = true;
+    _errorMessage = null;
+    notifyListeners();
+
+    try {
+      await _authService.verifyOtpAndLink(smsCode);
+      _isLoading = false;
+      notifyListeners();
+      return true;
+    } catch (e) {
+      _errorMessage = e.toString();
+      _isLoading = false;
       notifyListeners();
       return false;
     }

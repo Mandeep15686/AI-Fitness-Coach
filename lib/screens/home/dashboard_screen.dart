@@ -72,18 +72,33 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
                 const SizedBox(height: 20),
 
-                // Start Workout button
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton.icon(
-                    onPressed: () => Navigator.of(context).pushNamed(AppRoutes.workoutSelection),
-                    icon: const Icon(Icons.play_arrow),
-                    label: const Text('Start Workout'),
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.all(16),
+                // Action buttons
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton.icon(
+                        onPressed: () => Navigator.of(context).pushNamed(AppRoutes.workoutSelection),
+                        icon: const Icon(Icons.play_arrow),
+                        label: const Text('Start Workout'),
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.all(16),
+                        ),
+                      ),
                     ),
-                  ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: ElevatedButton.icon(
+                        onPressed: () => Navigator.of(context).pushNamed(AppRoutes.mealPlan),
+                        icon: const Icon(Icons.restaurant),
+                        label: const Text('Meal Plan'),
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.all(16),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
+
                 const SizedBox(height: 20),
 
                 // Progress button

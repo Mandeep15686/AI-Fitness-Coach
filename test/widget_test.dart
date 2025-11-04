@@ -1,5 +1,6 @@
 import 'package:ai_fitness_coach/main.dart';
 import 'package:ai_fitness_coach/providers/theme_provider.dart';
+import 'package:ai_fitness_coach/services/encryption_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -20,8 +21,15 @@ void main() {
     final themeProvider = ThemeProvider();
     await themeProvider.loadTheme(); // Load the theme
 
+    // Create a mock EncryptionService
+    final encryptionService = EncryptionService();
+    await encryptionService.init();
+
     // Build our app and trigger a frame.
-    await tester.pumpWidget(AIFitnessCoachApp(themeProvider: themeProvider));
+    await tester.pumpWidget(AIFitnessCoachApp(
+      themeProvider: themeProvider,
+      encryptionService: encryptionService,
+    ));
 
     // Verify that the app builds without crashing.
     expect(find.byType(MaterialApp), findsOneWidget);

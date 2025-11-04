@@ -1,0 +1,1 @@
+ D:\\App\ Dev\\AI-Fitness-Coach\\.dart_tool\\flutter_build\\d51a62efe8852a99926849e86b914b81\\native_assets.json: 

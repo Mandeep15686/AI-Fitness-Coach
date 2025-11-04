@@ -2,9 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../models/workout_model.dart';
 import '../models/progress_model.dart';
 import '../core/constants/app_constants.dart';
+import 'encryption_service.dart';
 
 class FirebaseService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final EncryptionService _encryptionService;
+
+  FirebaseService(this._encryptionService);
 
   // Save workout to Firestore
   Future<void> saveWorkout(WorkoutModel workout) async {
@@ -12,7 +16,7 @@ class FirebaseService {
       await _firestore
           .collection(AppConstants.workoutsCollection)
           .doc(workout.workoutId)
-          .set(workout.toMap());
+          .set(workout.toMap(_encryptionService));
     } catch (e) {
       throw Exception('Failed to save workout: ${e.toString()}');
     }
@@ -29,7 +33,7 @@ class FirebaseService {
           .get();
 
       return snapshot.docs
-          .map((doc) => WorkoutModel.fromMap(doc.data() as Map<String, dynamic>))
+          .map((doc) => WorkoutModel.fromMap(doc.data() as Map<String, dynamic>, _encryptionService))
           .toList();
     } catch (e) {
       throw Exception('Failed to get workouts: ${e.toString()}');
@@ -51,7 +55,7 @@ class FirebaseService {
           .get();
 
       return snapshot.docs
-          .map((doc) => WorkoutModel.fromMap(doc.data() as Map<String, dynamic>))
+          .map((doc) => WorkoutModel.fromMap(doc.data() as Map<String, dynamic>, _encryptionService))
           .toList();
     } catch (e) {
       throw Exception('Failed to get workouts by date: ${e.toString()}');
@@ -113,21 +117,17 @@ class FirebaseService {
   // Get workout statistics
   Future<Map<String, dynamic>> getWorkoutStatistics(String userId) async {
     try {
-      QuerySnapshot snapshot = await _firestore
-          .collection(AppConstants.workoutsCollection)
-          .where('userId', isEqualTo: userId)
-          .get();
+      final workouts = await getUserWorkouts(userId, limit: 1000); // Get all workouts
 
-      int totalWorkouts = snapshot.docs.length;
+      int totalWorkouts = workouts.length;
       double totalCalories = 0;
       int totalReps = 0;
       int totalDurationSeconds = 0;
 
-      for (var doc in snapshot.docs) {
-        var data = doc.data() as Map<String, dynamic>;
-        totalCalories += (data['caloriesBurned'] ?? 0.0).toDouble();
-        totalReps += (data['repetitions'] ?? 0) as int;
-        totalDurationSeconds += (data['durationSeconds'] ?? 0) as int;
+      for (var workout in workouts) {
+        totalCalories += workout.caloriesBurned;
+        totalReps += workout.repetitions;
+        totalDurationSeconds += workout.durationSeconds;
       }
 
       return {

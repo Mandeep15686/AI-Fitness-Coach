@@ -1,3 +1,5 @@
+import '../services/encryption_service.dart';
+
 class WorkoutModel {
   final String workoutId;
   final String userId;
@@ -25,34 +27,34 @@ class WorkoutModel {
     required this.setDetails,
   });
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toMap(EncryptionService encryptionService) {
     return {
       'workoutId': workoutId,
       'userId': userId,
       'exerciseType': exerciseType,
       'repetitions': repetitions,
       'sets': sets,
-      'caloriesBurned': caloriesBurned,
+      'caloriesBurned': encryptionService.encrypt(caloriesBurned.toString()),
       'durationSeconds': durationSeconds,
       'startTime': startTime.toIso8601String(),
       'endTime': endTime.toIso8601String(),
-      'averageFormScore': averageFormScore,
+      'averageFormScore': encryptionService.encrypt(averageFormScore.toString()),
       'setDetails': setDetails.map((set) => set.toMap()).toList(),
     };
   }
 
-  factory WorkoutModel.fromMap(Map<String, dynamic> map) {
+  factory WorkoutModel.fromMap(Map<String, dynamic> map, EncryptionService encryptionService) {
     return WorkoutModel(
       workoutId: map['workoutId'] ?? '',
       userId: map['userId'] ?? '',
       exerciseType: map['exerciseType'] ?? '',
       repetitions: map['repetitions'] ?? 0,
       sets: map['sets'] ?? 0,
-      caloriesBurned: (map['caloriesBurned'] ?? 0.0).toDouble(),
+      caloriesBurned: (map['caloriesBurned'] is String) ? double.parse(encryptionService.decrypt(map['caloriesBurned'])) : (map['caloriesBurned'] ?? 0.0).toDouble(),
       durationSeconds: map['durationSeconds'] ?? 0,
       startTime: DateTime.parse(map['startTime']),
       endTime: DateTime.parse(map['endTime']),
-      averageFormScore: (map['averageFormScore'] ?? 0.0).toDouble(),
+      averageFormScore: (map['averageFormScore'] is String) ? double.parse(encryptionService.decrypt(map['averageFormScore'])) : (map['averageFormScore'] ?? 0.0).toDouble(),
       setDetails: (map['setDetails'] as List<dynamic>)
           .map((item) => SetData.fromMap(item as Map<String, dynamic>))
           .toList(),

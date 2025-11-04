@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     if (!mounted) return; // Ensure the widget is still in the tree.
 
-    final route = authProvider.isAuthenticated ? AppRoutes.dashboard : AppRoutes.login;
+    final route = authProvider.isAuthenticated ? AppRoutes.dashboard : AppRoutes.welcome;
     Navigator.of(context).pushReplacementNamed(route);
   }
 

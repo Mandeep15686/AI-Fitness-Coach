@@ -3,9 +3,10 @@ import '../models/workout_model.dart';
 import '../models/user_model.dart';
 import '../services/firebase_service.dart';
 import '../services/calorie_service.dart';
+import '../services/encryption_service.dart';
 
 class WorkoutProvider with ChangeNotifier {
-  final FirebaseService _firebaseService = FirebaseService();
+  late final FirebaseService _firebaseService;
   final CalorieService _calorieService = CalorieService();
 
   List<WorkoutModel> _workouts = [];
@@ -29,6 +30,10 @@ class WorkoutProvider with ChangeNotifier {
   String? get activeExerciseType => _activeExerciseType;
   int get currentReps => _currentReps;
   int get currentSets => _currentSets;
+
+  WorkoutProvider(EncryptionService encryptionService) {
+    _firebaseService = FirebaseService(encryptionService);
+  }
 
   // Start workout session
   void startWorkout(String exerciseType) {

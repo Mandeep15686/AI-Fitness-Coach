@@ -1,7 +1,6 @@
-
+import 'package:ai_fitness_coach/core/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../core/routes/app_routes.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/theme_provider.dart';
 
@@ -21,6 +20,12 @@ class ProfileScreen extends StatelessWidget {
                 themeProvider.isDarkMode ? Icons.dark_mode : Icons.light_mode),
             onPressed: () {
               themeProvider.toggleTheme();
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              Navigator.of(context).pushNamed(AppRoutes.settings);
             },
           ),
         ],

@@ -43,6 +43,8 @@ dependencies:
   firebase_analytics: ^10.10.7
   connectivity_plus: ^6.0.5
   shared_preferences: ^2.2.3
+  encrypt: ^5.0.3
+  flutter_secure_storage: ^9.0.0
 
 
   # Camera & ML
