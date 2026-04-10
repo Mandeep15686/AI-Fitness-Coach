@@ -1,0 +1,38 @@
+# ========================
+# Flutter App
+# ========================
+flutter_app/.dart_tool/
+flutter_app/.flutter-plugins
+flutter_app/.flutter-plugins-dependencies
+flutter_app/build/
+flutter_app/.packages
+flutter_app/pubspec.lock
+flutter_app/android/.gradle/
+flutter_app/android/local.properties
+flutter_app/android/key.properties
+flutter_app/ios/Pods/
+flutter_app/ios/.symlinks/
+flutter_app/ios/Flutter/Flutter.framework
+flutter_app/ios/Flutter/Flutter.podspec
+flutter_app/google-services.json
+flutter_app/GoogleService-Info.plist
+flutter_app/lib/firebase_options.dart  # regenerate with: flutterfire configure
+
+# ========================
+# Python Model
+# ========================
+python_model/venv/
+python_model/__pycache__/
+python_model/**/__pycache__/
+python_model/**/*.pyc
+python_model/.pytest_cache/
+*.egg-info/
+
+# ========================
+# General
+# ========================
+.DS_Store
+*.log
+.env
+.env.*
+secrets/
