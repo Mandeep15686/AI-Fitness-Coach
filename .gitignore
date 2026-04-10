@@ -36,3 +36,4 @@ python_model/.pytest_cache/
 .env
 .env.*
 secrets/
+.idea/

@@ -1,17 +1,76 @@
-# ai_fitness_coach
+# AI Fitness Coach 🏋️‍♂️🤖
 
-A new Flutter project.
+An AI-powered fitness application built with Flutter and Firebase that provides real-time pose detection, rep counting, and personalized coaching.
 
-## Getting Started
+## ✨ Features
 
-This project is a starting point for a Flutter application.
+- **🤖 AI Pose Detection**: Real-time body tracking using advanced pose estimation.
+- **🔁 Automatic Rep Counting**: Tracks your sets and reps automatically with high accuracy.
+- **🔥 Calorie Tracking**: MET-based estimation to monitor your energy expenditure.
+- **📊 Progress Analytics**: Detailed insights into your fitness journey and improvements.
+- **🍱 Meal Planning**: Personalized meal suggestions based on your fitness goals.
+- **🔒 Secure Data**: User data is encrypted before being stored in the cloud.
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 Getting Started
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+### Prerequisites
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Flutter SDK (latest version recommended)
+- Dart SDK
+- Android Studio / VS Code
+- A Firebase Project
+
+### Setup Instructions
+
+1.  **Clone the Repository**
+    ```bash
+    git clone https://github.com/yourusername/ai_fitness_coach.git
+    cd ai_fitness_coach
+    ```
+
+2.  **Install Dependencies**
+    ```bash
+    flutter pub get
+    ```
+
+3.  **Firebase Configuration**
+    - Add your `google-services.json` to `android/app/`.
+    - Add your `GoogleService-Info.plist` to `ios/Runner/`.
+    - The `lib/firebase_options.dart` file has been pre-configured for the project, but ensure your Firebase project matches the bundle IDs:
+        - Android: `com.example.ai_fitness_coach`
+        - iOS: `com.example.aiFitnessCoach`
+
+4.  **Firestore Security Rules**
+    Deploy the following rules to your Firebase Console to allow users to access their own data:
+    ```javascript
+    service cloud.firestore {
+      match /databases/{database}/documents {
+        match /users/{userId} {
+          allow read, write: if request.auth != null && request.auth.uid == userId;
+        }
+        match /workouts/{workoutId} {
+          allow read, write: if request.auth != null;
+        }
+        match /progress/{progressId} {
+          allow read, write: if request.auth != null;
+        }
+      }
+    }
+    ```
+
+5.  **Run the App**
+    ```bash
+    flutter run
+    ```
+
+## 🛠 Tech Stack
+
+- **Frontend**: Flutter & Dart
+- **Backend**: Firebase Authentication, Cloud Firestore
+- **State Management**: Provider
+- **Design**: Material 3 with a dark-themed fitness aesthetic
+- **Encryption**: AES encryption for sensitive user data
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
