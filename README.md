@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 🏋️ AI Fitness Coach — Complete Project
 
 A full-stack AI fitness app combining a **Flutter mobile app** (UI + on-device pose detection via Google ML Kit) with a **Python ML backend** (model training + REST API server).
@@ -129,7 +128,3 @@ python src/api_server.py   # Starts at http://localhost:8000
 ---
 
 See `docs/SETUP.md` for Firebase configuration and full setup instructions.
-=======
-# AI-Fitness-Coach
-AI-powered fitness coach built with Flutter that provides workout guidance, posture detection, meal planning, and progress tracking.
->>>>>>> 4de551839290d6b786224a8184a7ccb44dd3a90d
