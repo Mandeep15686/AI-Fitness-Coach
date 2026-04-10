@@ -7,9 +7,9 @@ A full-stack AI fitness app combining a **Flutter mobile app** (UI + on-device p
 ## 📁 Project Structure
 
 ```
-ai_fitness_coach_combined/
+AI_Fitness_Coach/
 │
-├── flutter_app/                     Flutter Mobile Application
+├── ai_fitness-coach/                     Flutter Mobile Application
 │   ├── lib/
 │   │   ├── core/
 │   │   │   ├── constants/           colors.dart, app_constants.dart
