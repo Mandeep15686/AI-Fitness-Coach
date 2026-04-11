@@ -141,7 +141,7 @@ class _HomeTab extends StatelessWidget {
                       end: Alignment.bottomRight,
                     ),
                     boxShadow: [BoxShadow(
-                      color: AppColors.primary.withOpacity(0.3),
+                      color: AppColors.primary.withValues(alpha: 0.3),
                       blurRadius: 24, offset: const Offset(0, 8),
                     )],
                   ),
@@ -160,7 +160,7 @@ class _HomeTab extends StatelessWidget {
                             child: Container(
                               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                               decoration: BoxDecoration(
-                                color: AppColors.textOnPrimary.withOpacity(0.2),
+                                color: AppColors.textOnPrimary.withValues(alpha: 0.2),
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               child: Text('Start Workout →', style: GoogleFonts.barlow(
@@ -209,8 +209,8 @@ class _HomeTab extends StatelessWidget {
                         margin: const EdgeInsets.only(right: 12),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(14),
-                          color: AppColors.exerciseColor(e.name).withOpacity(0.12),
-                          border: Border.all(color: AppColors.exerciseColor(e.name).withOpacity(0.3)),
+                          color: AppColors.exerciseColor(e.name).withValues(alpha: 0.12),
+                          border: Border.all(color: AppColors.exerciseColor(e.name).withValues(alpha: 0.3)),
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -272,7 +272,7 @@ class _HomeTab extends StatelessWidget {
     decoration: BoxDecoration(
       color: AppColors.bgCard,
       borderRadius: BorderRadius.circular(14),
-      border: Border.all(color: color.withOpacity(0.2)),
+      border: Border.all(color: color.withValues(alpha: 0.2)),
     ),
     child: Column(
       children: [
@@ -363,7 +363,7 @@ class _WorkoutSelectionInner extends StatelessWidget {
           final e = exercises[i];
           final color = AppColors.exerciseColor(e.name);
           return GestureDetector(
-            onTap: () => Navigator.of(context).pushNamed(
+            onTap: () => Navigator.of(context, rootNavigator: true).pushNamed(
               AppRoutes.liveWorkout, arguments: {'exerciseType': e.name},
             ),
             child: Container(
@@ -372,7 +372,7 @@ class _WorkoutSelectionInner extends StatelessWidget {
               decoration: BoxDecoration(
                 color: AppColors.bgCard,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: color.withOpacity(0.25)),
+                border: Border.all(color: color.withValues(alpha: 0.25)),
               ),
               child: Row(
                 children: [
@@ -380,7 +380,7 @@ class _WorkoutSelectionInner extends StatelessWidget {
                     width: 52, height: 52,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
-                      color: color.withOpacity(0.15),
+                      color: color.withValues(alpha: 0.15),
                     ),
                     child: Icon(_iconFor(e.name), color: color, size: 28),
                   ),
@@ -418,7 +418,7 @@ class _WorkoutSelectionInner extends StatelessWidget {
   Widget _chip(String text, Color color) => Container(
     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
     decoration: BoxDecoration(
-      color: color.withOpacity(0.1),
+      color: color.withValues(alpha: 0.1),
       borderRadius: BorderRadius.circular(6),
     ),
     child: Text(text, style: GoogleFonts.barlow(fontSize: 10, fontWeight: FontWeight.w600, color: color)),
@@ -531,13 +531,13 @@ class _ProgressTabState extends State<_ProgressTab> {
     decoration: BoxDecoration(
       color: AppColors.bgCard,
       borderRadius: BorderRadius.circular(14),
-      border: Border.all(color: color.withOpacity(0.2)),
+      border: Border.all(color: color.withValues(alpha: 0.2)),
     ),
     child: Row(
       children: [
         Container(
           width: 40, height: 40,
-          decoration: BoxDecoration(color: color.withOpacity(0.12), borderRadius: BorderRadius.circular(10)),
+          decoration: BoxDecoration(color: color.withValues(alpha: 0.12), borderRadius: BorderRadius.circular(10)),
           child: Icon(icon, color: color, size: 22),
         ),
         const SizedBox(width: 12),
@@ -586,7 +586,7 @@ class _ProfileTab extends StatelessWidget {
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               gradient: const LinearGradient(colors: [AppColors.primary, AppColors.secondary]),
-                              boxShadow: [BoxShadow(color: AppColors.primary.withOpacity(0.3), blurRadius: 20)],
+                              boxShadow: [BoxShadow(color: AppColors.primary.withValues(alpha: 0.3), blurRadius: 20)],
                             ),
                             child: Center(child: Text(
                               user.name.isNotEmpty ? user.name[0].toUpperCase() : '?',
@@ -600,9 +600,9 @@ class _ProfileTab extends StatelessWidget {
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                             decoration: BoxDecoration(
-                              color: AppColors.primary.withOpacity(0.12),
+                              color: AppColors.primary.withValues(alpha: 0.12),
                               borderRadius: BorderRadius.circular(20),
-                              border: Border.all(color: AppColors.primary.withOpacity(0.3)),
+                              border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
                             ),
                             child: Text(user.fitnessLevel, style: GoogleFonts.barlow(
                               fontSize: 12, color: AppColors.primary, fontWeight: FontWeight.w600,
@@ -658,9 +658,9 @@ class _ProfileTab extends StatelessWidget {
                       icon: const Icon(Icons.logout_rounded),
                       label: const Text('Sign Out'),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.error.withOpacity(0.15),
+                        backgroundColor: AppColors.error.withValues(alpha: 0.15),
                         foregroundColor: AppColors.error,
-                        side: BorderSide(color: AppColors.error.withOpacity(0.4)),
+                        side: BorderSide(color: AppColors.error.withValues(alpha: 0.4)),
                       ),
                     ),
                     const SizedBox(height: 100),

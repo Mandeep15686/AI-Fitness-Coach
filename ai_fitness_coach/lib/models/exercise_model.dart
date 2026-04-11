@@ -104,6 +104,28 @@ class ExerciseModel {
         defaultSets: 3,
         caloriesPerRep: 0.7,
       ),
+      ExerciseModel(
+        exerciseId: 'ex_005',
+        name: 'Lunges',
+        category: 'Lower Body',
+        description: 'Dynamic lower body exercise for legs and glutes',
+        difficulty: 'Beginner',
+        muscleGroups: ['Quadriceps', 'Glutes', 'Hamstrings', 'Calves'],
+        defaultReps: 12,
+        defaultSets: 3,
+        caloriesPerRep: 0.5,
+      ),
+      ExerciseModel(
+        exerciseId: 'ex_006',
+        name: 'Planks',
+        category: 'Core',
+        description: 'Isometric core exercise for stability and strength',
+        difficulty: 'Beginner',
+        muscleGroups: ['Core', 'Shoulders', 'Glutes'],
+        defaultReps: 1,
+        defaultSets: 3,
+        caloriesPerRep: 0.4,
+      ),
     ];
   }
 }

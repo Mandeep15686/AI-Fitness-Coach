@@ -70,14 +70,14 @@ class PrivacySettingsScreen extends StatelessWidget {
                   // Delete account
                   Container(
                     decoration: BoxDecoration(
-                      color: AppColors.error.withOpacity(0.08),
+                      color: AppColors.error.withValues(alpha: 0.08),
                       borderRadius: BorderRadius.circular(14),
-                      border: Border.all(color: AppColors.error.withOpacity(0.3)),
+                      border: Border.all(color: AppColors.error.withValues(alpha: 0.3)),
                     ),
                     child: ListTile(
                       leading: const Icon(Icons.delete_forever_rounded, color: AppColors.error),
                       title: Text('Delete Account', style: GoogleFonts.barlow(fontSize: 15, color: AppColors.error, fontWeight: FontWeight.w500)),
-                      subtitle: Text('This action is permanent', style: GoogleFonts.barlow(fontSize: 12, color: AppColors.error.withOpacity(0.7))),
+                      subtitle: Text('This action is permanent', style: GoogleFonts.barlow(fontSize: 12, color: AppColors.error.withValues(alpha: 0.7))),
                       onTap: () async {
                         final confirmed = await showDialog<bool>(
                           context: context,

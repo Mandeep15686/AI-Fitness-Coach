@@ -109,7 +109,7 @@ class _ProgressAnalyticsScreenState extends State<ProgressAnalyticsScreen> {
     decoration: BoxDecoration(
       color: AppColors.bgCard,
       borderRadius: BorderRadius.circular(14),
-      border: Border.all(color: color.withOpacity(0.2)),
+      border: Border.all(color: color.withValues(alpha: 0.2)),
     ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,

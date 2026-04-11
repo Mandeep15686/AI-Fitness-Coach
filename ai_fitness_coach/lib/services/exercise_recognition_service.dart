@@ -201,6 +201,13 @@ class ExerciseRecognitionService {
         if (shoulder > 150) return 'Press overhead!';
         return 'Great press!';
 
+      case 'Lunges':
+        final knee = _getKneeAngle(poseData);
+        if (knee > 160) return 'Step forward and lower down!';
+        if (knee < 80) return 'Too deep — rise slightly';
+        if (_getHipAngle(poseData) < 100) return 'Keep your torso upright!';
+        return _isInDownPosition ? 'Great — push back up!' : 'Good lunge!';
+
       default:
         return 'Keep going!';
     }

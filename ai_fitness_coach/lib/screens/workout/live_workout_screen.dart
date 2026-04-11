@@ -122,7 +122,7 @@ class _LiveWorkoutScreenState extends State<LiveWorkoutScreen>
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
-      onPopInvoked: (didPop) { if (!didPop) _showEndDialog(); },
+      onPopInvokedWithResult: (didPop, _) { if (!didPop) _showEndDialog(); },
       child: Scaffold(
         backgroundColor: Colors.black,
         body: Stack(fit: StackFit.expand, children: [
@@ -154,7 +154,7 @@ class _LiveWorkoutScreenState extends State<LiveWorkoutScreen>
           // Saving overlay
           if (_isSaving)
             Container(
-              color: Colors.black.withOpacity(0.7),
+              color: Colors.black.withValues(alpha: 0.7),
               child: const Center(child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -226,7 +226,7 @@ class _LiveWorkoutScreenState extends State<LiveWorkoutScreen>
       child: Container(
         width: 42, height: 42,
         decoration: BoxDecoration(
-          color: color == Colors.white ? Colors.white.withOpacity(0.15) : color.withOpacity(0.8),
+          color: color == Colors.white ? Colors.white.withValues(alpha: 0.15) : color.withValues(alpha: 0.8),
           borderRadius: BorderRadius.circular(10),
         ),
         child: Icon(icon, color: Colors.white, size: 20),
@@ -239,10 +239,10 @@ class _LiveWorkoutScreenState extends State<LiveWorkoutScreen>
       margin: const EdgeInsets.all(12),
       padding: const EdgeInsets.fromLTRB(20, 18, 20, 28),
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.82),
+        color: Colors.black.withValues(alpha: 0.82),
         borderRadius: BorderRadius.circular(22),
-        border: Border.all(color: color.withOpacity(0.45), width: 1.5),
-        boxShadow: [BoxShadow(color: color.withOpacity(0.15), blurRadius: 24)],
+        border: Border.all(color: color.withValues(alpha: 0.45), width: 1.5),
+        boxShadow: [BoxShadow(color: color.withValues(alpha: 0.15), blurRadius: 24)],
       ),
       child: Column(mainAxisSize: MainAxisSize.min, children: [
         ScaleTransition(
@@ -286,18 +286,37 @@ class _LiveWorkoutScreenState extends State<LiveWorkoutScreen>
             width: double.infinity,
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
             decoration: BoxDecoration(
-              color: color.withOpacity(0.1),
+              color: color.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: color.withOpacity(0.3)),
+              border: Border.all(color: color.withValues(alpha: 0.3)),
             ),
             child: Text(pose.feedbackMessage!, style: GoogleFonts.barlow(
               fontSize: 13, color: color, fontWeight: FontWeight.w600,
             ), textAlign: TextAlign.center),
           ),
         ],
+        if (pose.currentPose != null) ...[
+          const SizedBox(height: 12),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+            _angleChip('Elbow', pose.elbowAngle, color),
+            _angleChip('Knee', pose.kneeAngle, color),
+            _angleChip('Hip', pose.hipAngle, color),
+          ]),
+        ],
       ]),
     );
   }
+
+  Widget _angleChip(String label, double angle, Color color) => Column(
+    children: [
+      Text('${angle.toInt()}°', style: GoogleFonts.barlow(
+        fontSize: 16, fontWeight: FontWeight.w800, color: color,
+      )),
+      Text(label, style: GoogleFonts.barlow(
+        fontSize: 9, color: Colors.white38, letterSpacing: 1,
+      )),
+    ],
+  );
 
   void _showEndDialog() {
     showDialog(

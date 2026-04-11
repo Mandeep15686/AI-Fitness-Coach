@@ -45,7 +45,7 @@ class ProfileScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   gradient: const LinearGradient(colors: [AppColors.primary, AppColors.secondary]),
-                  boxShadow: [BoxShadow(color: AppColors.primary.withOpacity(0.35), blurRadius: 20)],
+                  boxShadow: [BoxShadow(color: AppColors.primary.withValues(alpha: 0.35), blurRadius: 20)],
                 ),
                 child: Center(child: Text(
                   user.name.isNotEmpty ? user.name[0].toUpperCase() : '?',
@@ -59,9 +59,9 @@ class ProfileScreen extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                 decoration: BoxDecoration(
-                  color: AppColors.primary.withOpacity(0.12),
+                  color: AppColors.primary.withValues(alpha: 0.12),
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: AppColors.primary.withOpacity(0.3)),
+                  border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
                 ),
                 child: Text(user.fitnessLevel, style: GoogleFonts.barlow(fontSize: 12, color: AppColors.primary, fontWeight: FontWeight.w600)),
               ),
@@ -108,9 +108,9 @@ class ProfileScreen extends StatelessWidget {
               icon: const Icon(Icons.logout_rounded),
               label: const Text('Sign Out'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.error.withOpacity(0.12),
+                backgroundColor: AppColors.error.withValues(alpha: 0.12),
                 foregroundColor: AppColors.error,
-                side: BorderSide(color: AppColors.error.withOpacity(0.4)),
+                side: BorderSide(color: AppColors.error.withValues(alpha: 0.4)),
               ),
             ),
             const SizedBox(height: 40),

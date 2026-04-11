@@ -41,7 +41,7 @@ class PoseOverlayPainter extends CustomPainter {
 
     // Draw skeleton lines
     final linePaint = Paint()
-      ..color = exerciseColor.withOpacity(0.7)
+      ..color = exerciseColor.withValues(alpha: 0.7)
       ..strokeWidth = 3.0
       ..strokeCap = StrokeCap.round;
 
@@ -64,7 +64,7 @@ class PoseOverlayPainter extends CustomPainter {
       ..style = PaintingStyle.fill;
 
     final outlinePaint = Paint()
-      ..color = Colors.white.withOpacity(0.9)
+      ..color = Colors.white.withValues(alpha: 0.9)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2;
 

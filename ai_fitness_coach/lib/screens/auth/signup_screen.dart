@@ -220,7 +220,7 @@ class _SignupScreenState extends State<SignupScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: value == groupValue ? AppColors.primary.withOpacity(0.12) : AppColors.bgCard,
+        color: value == groupValue ? AppColors.primary.withValues(alpha: 0.12) : AppColors.bgCard,
         border: Border.all(
           color: value == groupValue ? AppColors.primary : AppColors.textHint,
           width: value == groupValue ? 1.5 : 1,
