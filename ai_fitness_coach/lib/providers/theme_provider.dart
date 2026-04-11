@@ -8,9 +8,7 @@ class ThemeProvider with ChangeNotifier {
   bool get isDarkMode => _isDarkMode;
   ThemeMode get themeMode => _isDarkMode ? ThemeMode.dark : ThemeMode.light;
 
-  ThemeProvider() {
-    loadTheme();
-  }
+  ThemeProvider();
 
   Future<void> loadTheme() async {
     final prefs = await SharedPreferences.getInstance();

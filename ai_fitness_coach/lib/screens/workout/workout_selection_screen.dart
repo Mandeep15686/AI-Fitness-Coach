@@ -39,7 +39,7 @@ class WorkoutSelectionScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 color: AppColors.bgCard,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: color.withOpacity(0.25)),
+                border: Border.all(color: color.withValues(alpha: 0.25)),
               ),
               child: Row(
                 children: [
@@ -47,7 +47,7 @@ class WorkoutSelectionScreen extends StatelessWidget {
                     width: 56, height: 56,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(14),
-                      color: color.withOpacity(0.15),
+                      color: color.withValues(alpha: 0.15),
                     ),
                     child: Icon(_iconFor(e.name), color: color, size: 30),
                   ),
@@ -86,7 +86,7 @@ class WorkoutSelectionScreen extends StatelessWidget {
 
   Widget _chip(String text, Color color) => Container(
     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-    decoration: BoxDecoration(color: color.withOpacity(0.1), borderRadius: BorderRadius.circular(6)),
+    decoration: BoxDecoration(color: color.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(6)),
     child: Text(text, style: GoogleFonts.barlow(fontSize: 10, fontWeight: FontWeight.w600, color: color)),
   );
 

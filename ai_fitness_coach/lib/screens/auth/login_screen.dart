@@ -68,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       colors: [AppColors.primary, AppColors.secondary],
                     ),
                     boxShadow: [BoxShadow(
-                      color: AppColors.primary.withOpacity(0.35),
+                      color: AppColors.primary.withValues(alpha: 0.35),
                       blurRadius: 20,
                     )],
                   ),

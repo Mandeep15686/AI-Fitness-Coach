@@ -33,7 +33,7 @@ class MealPlanScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(colors: [Color(0xFF1A1A2E), Color(0xFF12121E)]),
                     borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: AppColors.primary.withOpacity(0.3)),
+                    border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

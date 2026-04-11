@@ -20,7 +20,7 @@ class WorkoutCardWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.bgCard,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: color.withOpacity(0.2)),
+        border: Border.all(color: color.withValues(alpha: 0.2)),
       ),
       child: Row(
         children: [
@@ -28,7 +28,7 @@ class WorkoutCardWidget extends StatelessWidget {
             width: 48, height: 48,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              color: color.withOpacity(0.14),
+              color: color.withValues(alpha: 0.14),
             ),
             child: Icon(_iconFor(workout.exerciseType), color: color, size: 24),
           ),
@@ -73,7 +73,7 @@ class WorkoutCardWidget extends StatelessWidget {
   Widget _pill(String text, Color color) => Container(
     padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
     decoration: BoxDecoration(
-      color: color.withOpacity(0.1),
+      color: color.withValues(alpha: 0.1),
       borderRadius: BorderRadius.circular(6),
     ),
     child: Text(text, style: GoogleFonts.barlow(fontSize: 10, fontWeight: FontWeight.w600, color: color)),

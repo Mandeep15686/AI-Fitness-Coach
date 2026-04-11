@@ -242,13 +242,13 @@ def predict_form(request: PoseRequest):
 
 
 @app.post("/feedback")
-def get_feedback(request: FeedbackRequest):
+def combined_feedback(request: FeedbackRequest):
     """
     Get hybrid feedback combining rule-based logic and AI model.
     Returns feedback text, form status, and joint angles.
     """
     try:
-        from src.posture_rules import get_feedback
+        from src.posture_rules import get_feedback as rule_get_feedback
 
         # Extract angles and rule-based feedback
         angles = extract_angles(request.landmarks)
@@ -266,7 +266,7 @@ def get_feedback(request: FeedbackRequest):
                 return MockLandmark(self._lms[idx].x, self._lms[idx].y)
 
         mock_lms = MockLandmarks(request.landmarks)
-        rule_feedback, status, good_form, elbow_angle, knee_angle, hip_angle = get_feedback(
+        rule_feedback, status, good_form, elbow_angle, knee_angle, hip_angle = rule_get_feedback(
             request.exercise_name, mock_lms
         )
 

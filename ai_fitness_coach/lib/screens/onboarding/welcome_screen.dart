@@ -49,9 +49,9 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     decoration: BoxDecoration(
-                      color: AppColors.primary.withOpacity(0.12),
+                      color: AppColors.primary.withValues(alpha: 0.12),
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: AppColors.primary.withOpacity(0.3)),
+                      border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
                     ),
                     child: Text('AI-POWERED FITNESS', style: GoogleFonts.barlow(
                       fontSize: 11, color: AppColors.primary, fontWeight: FontWeight.w700, letterSpacing: 1.5,
