@@ -80,13 +80,13 @@ class PoseProvider with ChangeNotifier {
   void _updateAngles(PoseDataModel pose) {
     if (pose.keypoints.length < 29) return;
     final svc = _poseDetectionService;
-    KeypointData? kp(int i) => i < pose.keypoints.length ? pose.keypoints[i] : null;
-    final shoulder = kp(11);
-    final elbow = kp(13);
-    final wrist = kp(15);
-    final hip = kp(23);
-    final knee = kp(25);
-    final ankle = kp(27);
+    KeypointData? keypointAt(int i) => i < pose.keypoints.length ? pose.keypoints[i] : null;
+    final shoulder = keypointAt(11);
+    final elbow = keypointAt(13);
+    final wrist = keypointAt(15);
+    final hip = keypointAt(23);
+    final knee = keypointAt(25);
+    final ankle = keypointAt(27);
     if (shoulder != null && elbow != null && wrist != null) {
       _elbowAngle = svc.calculateAngle(shoulder, elbow, wrist);
     }
@@ -102,15 +102,15 @@ class PoseProvider with ChangeNotifier {
     if (pose.keypoints.isEmpty) return 0.0;
     // Weight key exercise joints more heavily than face/hands for form scoring
     const highWeightIndices = [11, 12, 13, 14, 15, 16, 23, 24, 25, 26, 27, 28]; // shoulders, elbows, wrists, hips, knees, ankles
-    double sum = 0.0;
-    int count = 0;
+    double weightedSum = 0.0;
+    double totalWeight = 0.0;
     for (int i = 0; i < pose.keypoints.length; i++) {
       final kp = pose.keypoints[i];
       final weight = highWeightIndices.contains(i) ? 2.0 : 1.0;
-      sum += kp.visibility * weight;
-      count += weight.toInt();
+      weightedSum += kp.visibility * weight;
+      totalWeight += weight;
     }
-    return ((sum / count) * 100).clamp(0.0, 100.0);
+    return ((weightedSum / totalWeight) * 100).clamp(0.0, 100.0);
   }
 
   void resetRepCounter() {
